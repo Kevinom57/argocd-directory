@@ -1,14 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: httpbin
+  name: httpbin-dev
   namespace: argocd
 spec:
   destination:
-    namespace: httpbin
+    namespace: httpbin-dev
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: argocd-directory/TP3
+    path: argocd-directory/004-kustomize
     repoURL: https://github.com/Kevinom57/argocd-directory
     targetRevision: HEAD
+
