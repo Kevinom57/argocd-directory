@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: argocd-directory/004-kustomize
+    path: 004-kustomize/kustomize/overlays/dev
     repoURL: https://github.com/Kevinom57/argocd-directory
     targetRevision: HEAD
 
