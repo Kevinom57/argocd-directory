@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     path: TP3
-    repoURL: https://github.com/Kevinom57/argocd-directory
+    repoURL: https://github.com/Kevinom57/argocd-directory/
     targetRevision: HEAD
     directory:
       recurse: true
