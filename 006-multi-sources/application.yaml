@@ -1,12 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
+metadata:
+  name: multi-source-directory
+  namespace: argocd
 spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
-    namespace: httpbin
   sources:
-    - repoURL: TODO
-      path: TODO
+    - repoURL: https://github.com/Kevinom57/argocd-directory/006-multi-source
+      path: exposition 
       targetRevision: HEAD
+    - repoURL: https://github.com/Kevinom57/argocd-directory/006-multi-source
+      path: workload
+      targetRevision: HEAD
+
 

@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: chartmuseum
+  namespace: argocd
+spec:
+  destination:
+    namespace: chartmuseum
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: chartmuseum
+    repoURL: https://chartmuseum.github.io/charts
+    targetRevision: "3.10.3"
+    helm:
+      parameters:
+        - name: replicaCount
+          value: "2"
+      valuesObject:
+        commonLabels:
+          foo: bar
+        replicaCount: 3
