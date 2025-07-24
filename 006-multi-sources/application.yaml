@@ -1,0 +1,12 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: httpbin
+  sources:
+    - repoURL: TODO
+      path: TODO
+      targetRevision: HEAD
+
