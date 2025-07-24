@@ -12,3 +12,5 @@ spec:
     path: TP3
     repoURL: https://github.com/Kevinom57/argocd-directory
     targetRevision: HEAD
+    directory:
+      recurse: true
