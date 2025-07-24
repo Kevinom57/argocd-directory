@@ -7,12 +7,13 @@ spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
+    namespace: default
   sources:
-    - repoURL: https://github.com/Kevinom57/argocd-directory/006-multi-source
-      path: exposition 
+    - repoURL: https://github.com/Kevinom57/argocd-directory.git
+      path: 006-multi-sources/exposition 
       targetRevision: HEAD
-    - repoURL: https://github.com/Kevinom57/argocd-directory/006-multi-source
-      path: workload
+    - repoURL: https://github.com/Kevinom57/argocd-directory.git
+      path: 006-multi-sources/workload
       targetRevision: HEAD
 
 
