@@ -10,10 +10,10 @@ spec:
     namespace: default
   sources:
     - repoURL: https://github.com/Kevinom57/argocd-directory.git
-      path: 006-multi-sources/exposition
+      path: 010-sync-policies/exposition
       targetRevision: HEAD
     - repoURL: https://github.com/Kevinom57/argocd-directory.git
-      path: 006-multi-sources/workload
+      path: 010-sync-policies/workload
       targetRevision: HEAD
   syncPolicy:
     automated:
