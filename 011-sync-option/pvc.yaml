@@ -3,10 +3,11 @@ kind: PersistentVolumeClaim
 metadata:
   name: sleep-pvc
   namespace: sleep
+  annotations:
+    argocd.argoproj.io/sync-options: Delete=false  # ✅ Ne pas supprimer lors du prune
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 1Gi
-
