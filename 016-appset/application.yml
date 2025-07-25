@@ -10,6 +10,6 @@ spec:
   project: default
   source:
     path: 003-directory/manifests
-    repoURL: https://gitlab.com/Kevinom57/argocd-directory
+    repoURL: https://github.com/Kevinom57/argocd-directory.git
     targetRevision: HEAD
 
