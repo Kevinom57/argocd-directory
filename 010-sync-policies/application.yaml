@@ -1,19 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: multi-source-directory
+  name: multi-source-directory-sync
   namespace: argocd
 spec:
-  project: my-project
+  project: default
   destination:
     server: https://kubernetes.default.svc
     namespace: default
   sources:
     - repoURL: https://github.com/Kevinom57/argocd-directory.git
-      path: 006-multi-sources/exposition 
+      path: 006-multi-sources/exposition
       targetRevision: HEAD
     - repoURL: https://github.com/Kevinom57/argocd-directory.git
       path: 006-multi-sources/workload
       targetRevision: HEAD
-
-
+  syncPolicy:
+    automated:
+      prune: true
+      allowEmpty: true

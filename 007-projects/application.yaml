@@ -5,14 +5,14 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: httpbin
+    namespace: default 
     server: https://kubernetes.default.svc
-  project: my-project
+  project: default
   source:
-    path: 003-directory-solution/manifests
-    repoURL: https://gitlab.com/Kevinom57/argocd-directory
+    path: 003-directory/manifests
+    repoURL: https://github.com/Kevinom57/argocd-directory.git
     targetRevision: HEAD
-    # directory:
-      # recurse: true
-      # exclude: 'rbac/*'
+    directory:
+      recurse: true
+      exclude: 'rbac/*'
 

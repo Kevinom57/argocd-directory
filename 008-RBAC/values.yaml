@@ -1,0 +1,31 @@
+server:
+  ingress:
+    enabled: true
+    hostname: "argo.formation-argo.com"
+    annotations:
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+  certificate:
+    enabled: true
+    domain: "argo.formation-argo.com"
+    issuer:
+      name: selfsigned-issuer
+      kind: ClusterIssuer
+      group: cert-manager.io
+configs:
+  cm:
+    accounts.alice: apiKey, login
+    accounts.bob: apiKey, login
+    users.anonymous.enabled: "true"
+  rbac:
+    policy.csv: |
+      p, role:sync-apps, applications, sync, */*, allow
+      g, alice, role:sync-apps
+      g, alice, role:readonly
+      p, role:my-project, applications, get, my-project/*, allow
+      p, role:sync-apps, applications, sync, */*, allow
+      g, bob, role:my-project
+      g, bob, role:sync-apps
+      p, bob, applications, delete/*/Pod/*/*, my-project/*, allow
+      g, bob, role:admin
+      p, bob, applications, delete, */*, deny 
